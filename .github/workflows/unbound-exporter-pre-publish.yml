@@ -1,0 +1,19 @@
+name: unbound-exporter container pre-publish
+
+on:
+  workflow_call:
+    outputs:
+      container-image-name:
+        value: ${{ jobs.unbound-exporter-pre-publish.outputs.container-image-name }}
+
+jobs:
+  unbound-exporter-pre-publish:
+    runs-on: ubuntu-latest
+    outputs:
+      container-image-name: ${{ steps.container-image-name.outputs.VALUE }}
+    steps:
+      - name: Compose container image name
+        id: container-image-name
+        run: echo "VALUE=${REPO_NAME#container-}" >>$GITHUB_OUTPUT
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
