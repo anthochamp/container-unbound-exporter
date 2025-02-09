@@ -8,4 +8,4 @@ on:
 
 jobs:
   validate:
-    uses: anthochamp/dev-toolbox/.github/workflows/container-validate.yml@b67d6c1e63fb221a1d8b696dadaa379a380a01c2
+    uses: anthochamp/dev-toolbox/.github/workflows/container-validate.yml@6d89e70c6d25c9c8e3a5dbd067edc256de842d3c

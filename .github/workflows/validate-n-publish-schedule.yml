@@ -10,7 +10,7 @@ jobs:
 
   validate:
     needs: get-version-tag
-    uses: anthochamp/dev-toolbox/.github/workflows/container-validate.yml@36d45ce9f8e590f39d29858f04d073f94ebbb711
+    uses: anthochamp/dev-toolbox/.github/workflows/container-validate.yml@6d89e70c6d25c9c8e3a5dbd067edc256de842d3c
     with:
       checkout-ref: ${{ needs.get-version-tag.outputs.tag }}
 
