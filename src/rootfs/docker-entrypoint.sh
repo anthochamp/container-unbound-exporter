@@ -41,22 +41,22 @@ if [ -n "${1:-}" ]; then
 	exec "$@"
 fi
 
-args=
+set -- /unbound_exporter
 
 if [ -n "$UNBOUND_EXPORTER_HOST" ]; then
-	args=$args" -unbound.host '$UNBOUND_EXPORTER_HOST'"
+	set -- "$@" -unbound.host "$UNBOUND_EXPORTER_HOST"
 fi
 
 if [ -n "$UNBOUND_EXPORTER_CA_FILE" ]; then
-	args=$args" -unbound.ca '$UNBOUND_EXPORTER_CA_FILE'"
+	set -- "$@" -unbound.ca "$UNBOUND_EXPORTER_CA_FILE"
 fi
 
 if [ -n "$UNBOUND_EXPORTER_CERT_FILE" ]; then
-	args=$args" -unbound.cert '$UNBOUND_EXPORTER_CERT_FILE'"
+	set -- "$@" -unbound.cert "$UNBOUND_EXPORTER_CERT_FILE"
 fi
 
 if [ -n "$UNBOUND_EXPORTER_CERT_KEY_FILE" ]; then
-	args=$args" -unbound.key '$UNBOUND_EXPORTER_CERT_KEY_FILE'"
+	set -- "$@" -unbound.key "$UNBOUND_EXPORTER_CERT_KEY_FILE"
 fi
 
-eval "exec /unbound_exporter$args"
+exec "$@"
