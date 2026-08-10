@@ -1,7 +1,7 @@
 FROM golang:alpine@sha256:0178a641fbb4858c5f1b48e34bdaabe0350a330a1b1149aabd498d0699ff5fb2 AS build
 
 # renovate: datasource=github-releases depName=letsencrypt/unbound_exporter
-ARG UNBOUND_EXPORTER_VERSION=0.5.0
+ARG UNBOUND_EXPORTER_VERSION=0.6.0
 
 # hadolint ignore=DL3018
 RUN set -ex; \
